@@ -1,0 +1,65 @@
+<div class="project-container">
+  <div class="header">
+    <h2>Projets</h2>
+    <button (click)="toggleForm()" class="btn-add" [class.active]="showForm">
+      {{ showForm ? 'Annuler' : '+ Nouveau Projet' }}
+    </button>
+  </div>
+
+  <!-- Formulaire pour ajouter un nouveau projet -->
+  <form *ngIf="showForm" [formGroup]="projectForm" (ngSubmit)="addProject()" class="project-form">
+    <div class="form-group">
+      <label>Nom du projet *</label>
+      <input formControlName="name" />
+      <div *ngIf="projectForm.get('name')?.invalid" class="error">
+        Le nom est obligatoire (50 caractères max)
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Description *</label>
+      <textarea formControlName="description"></textarea>
+      <div *ngIf="projectForm.get('description')?.invalid" class="error">
+        La description est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Date de début *</label>
+      <input type="date" formControlName="startDate" [min]="todayDate" />
+    </div>
+
+    <div class="form-group">
+      <label>Date de fin</label>
+      <input type="date" formControlName="endDate" />
+    </div>
+
+    <button type="submit" [disabled]="projectForm.invalid" class="btn-submit">
+      Enregistrer
+    </button>
+  </form>
+
+  <!-- Liste des projets -->
+  <div class="project-list">
+    <div *ngFor="let project of projects" class="project-card">
+      <h3>{{ project.name }}</h3>
+      <p>{{ project.description }}</p>
+      <small>
+        Période : {{ project.startDate | date: 'dd/MM/yyyy' }}
+        <span *ngIf="project.endDate">- {{ project.endDate | date: 'dd/MM/yyyy' }}</span>
+      </small>
+
+      <!-- Ajouter les boutons Ajouter des tâches, Modifier, Supprimer -->
+      <div class="project-actions">
+        <!-- Vérifier que project.id est défini avant d'ajouter les boutons -->
+        <button *ngIf="project.id" (click)="addTaskToProject(project.id)" class="btn-add-task">Ajouter des tâches</button>
+        <button *ngIf="project.id" (click)="editProject(project.id)" class="btn-edit">Modifier</button>
+        <button *ngIf="project.id" (click)="deleteProject(project.id)" class="btn-delete">Supprimer</button>
+
+        <!-- Liste des tâches associées au projet -->
+        <button *ngIf="project.id" [routerLink]="['/tasks/projects', project.id]" class="btn-task-list">Liste des tâches</button>
+
+      </div>
+    </div>
+  </div>
+</div>

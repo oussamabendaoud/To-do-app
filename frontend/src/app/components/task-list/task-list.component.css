@@ -1,0 +1,165 @@
+/* Conteneur des filtres */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Champ de recherche dynamique */
+.search-input {
+  width: 100%;
+  max-width: 250px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+.search-input:focus {
+  outline-color: #007bff;
+}
+
+/* Sélecteur de statut */
+.status-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.status-select:focus {
+  outline-color: #007bff;
+}
+
+/* Message d'erreur */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+}
+
+/* Message de chargement */
+.loading-message {
+  background-color: #e2e3e5;
+  color: #383d41;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 4px;
+  border: 1px solid #d6d8db;
+}
+
+/* Conteneur des tâches */
+.task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-card {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.task-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.task-card p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.task-card small {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+/* Actions de la tâche */
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.task-actions button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-actions button:hover {
+  opacity: 0.8;
+}
+
+/* Styles spécifiques aux boutons */
+.task-actions button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.task-actions button:first-child:hover {
+  background-color: #0056b3;
+}
+
+.task-actions button:nth-child(2) {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.task-actions button:nth-child(2):hover {
+  background-color: #ec971f;
+}
+
+.task-actions button:last-child {
+  background-color: #d9534f;
+  color: white;
+}
+
+.task-actions button:last-child:hover {
+  background-color: #c9302c;
+}
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  align-self: center;
+  font-size: 14px;
+  margin: 0 10px;
+}

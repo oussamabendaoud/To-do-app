@@ -1,0 +1,36 @@
+<div class="filters">
+  <!-- Champ de recherche dynamique -->
+  <input type="text" [(ngModel)]="searchText" (ngModelChange)="onSearchChange()" placeholder="Rechercher une tâche..." class="search-input" />
+
+  <!-- Sélecteur de statut -->
+  <select [(ngModel)]="selectedStatus" (ngModelChange)="onStatusChange()" class="status-select">
+    <option value="">Tous les statuts</option>
+    <option value="pending">En attente</option>
+    <option value="in_progress">En cours</option>
+    <option value="completed">Complété</option>
+  </select>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div *ngIf="isLoading" class="loading-message">Chargement...</div>
+
+<div class="task-container" *ngIf="!isLoading">
+  <div *ngFor="let task of filteredTasks" class="task-card">
+    <h3>{{ task.title }}</h3>
+    <p>{{ task.description }}</p>
+    <small>{{ task.dueDate | date: 'dd/MM/yyyy' }}</small>
+    <div class="task-actions">
+      <button (click)="viewTaskDetails(task.id)">Détaille</button>
+      <button (click)="editTask(task.id)">Modifier</button>
+      <button (click)="deleteTask(task.id)">Supprimer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class="pagination">
+  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Précédent</button>
+  <span>Page {{ currentPage }}</span>
+  <button (click)="changePage(currentPage + 1)" [disabled]="filteredTasks.length < itemsPerPage">Suivant</button>
+</div>

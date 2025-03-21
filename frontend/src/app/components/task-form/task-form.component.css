@@ -1,0 +1,77 @@
+/* Conteneur principal du formulaire */
+.task-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre du formulaire */
+.task-form-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Formulaire en lui-même */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styles pour chaque champ du formulaire */
+.task-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form .form-group label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.task-form input,
+.task-form select,
+.task-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.task-form input[type="date"] {
+  width: 100%;
+}
+
+.task-form .form-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+.task-form .error {
+  color: red;
+  font-size: 0.9rem;
+}
+
+/* Bouton de soumission */
+.task-form .btn-submit {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-form .btn-submit:hover {
+  background-color: #0056b3;
+}

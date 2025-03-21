@@ -1,0 +1,42 @@
+<!-- src/app/app.component.html -->
+<div class="main-container">
+  <!-- Barre de navigation Bootstrap améliorée -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">To Do App</a>
+
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/projects"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }">
+              Projets
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/tasks"
+               routerLinkActive="active">
+              Tâches
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenu routé -->
+  <main class="container py-4">
+    <router-outlet></router-outlet>
+  </main>
+</div>
